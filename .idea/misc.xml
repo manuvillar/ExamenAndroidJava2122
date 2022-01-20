@@ -8,6 +8,9 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2817028985507246" />
         <entry key="app/src/main/res/layout/activity_registrar.xml" value="0.2758152173913043" />
         <entry key="app/src/main/res/layout/content_home.xml" value="0.2758152173913043" />
+        <entry key="app/src/main/res/layout/fragment_inicio.xml" value="0.1828774062816616" />
+        <entry key="app/src/main/res/menu/home.xml" value="0.33425925925925926" />
+        <entry key="app/src/main/res/menu/main.xml" value="0.23148148148148148" />
       </map>
     </option>
   </component>

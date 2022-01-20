@@ -4,7 +4,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -35,9 +37,10 @@ public class RegistrarActivity extends AppCompatActivity {
     public void aceptar(View view) {
         String nombre, apellidos, sexo;
 
-        Bundle datos = getIntent().getExtras();
-        String user = datos.getString("user");
-        String contraseña = datos.getString("password");
+        SharedPreferences sharedPreferences =
+                getSharedPreferences("login", Context.MODE_PRIVATE);
+        String user = sharedPreferences.getString("usuario", "");
+        String contraseña = sharedPreferences.getString("contraseña", "");
 
         nombre = binding.EditTextNombre.getText().toString();
         apellidos = binding.EditTextApellidos.getText().toString();

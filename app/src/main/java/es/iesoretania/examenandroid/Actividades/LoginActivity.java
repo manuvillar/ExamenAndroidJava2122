@@ -3,7 +3,9 @@ package es.iesoretania.examenandroid.Actividades;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -43,8 +45,14 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }else {
                 Intent intentMain = new Intent(this, RegistrarActivity.class);
-                intentMain.putExtra("user", user);
-                intentMain.putExtra("password", password);
+                //Guardo los datos en Shared Preferences.
+                SharedPreferences sharedPreferences =
+                        getSharedPreferences("login",
+                                Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("usuario",user);
+                editor.putString("contraseña",password);
+                editor.commit();
                 BaseDeDatos.close();
                 startActivity(intentMain);
             }
