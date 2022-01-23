@@ -76,8 +76,13 @@ public class LoginActivity extends AppCompatActivity {
             if (fila.moveToFirst()) {
                 if (fila.getString(0).equals(password)){
                     Intent intentMain = new Intent(this, HomeActivity.class);
-                    intentMain.putExtra("user", user);
-                    intentMain.putExtra("password", password);
+                    SharedPreferences sharedPreferences =
+                            getSharedPreferences("login",
+                                    Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("usuario",user);
+                    editor.putString("contraseña",password);
+                    editor.commit();
                     BaseDeDatos.close();
                     startActivity(intentMain);
                 }else{
